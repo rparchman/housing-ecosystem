@@ -1,7 +1,8 @@
 from pydantic import BaseModel
+from typing import Optional, Dict
 
 class Listing(BaseModel):
     listing_id: str
     address: str
-    meta: dict
+    meta: Dict
     va_tag: bool = False
