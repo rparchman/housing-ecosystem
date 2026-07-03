@@ -1,0 +1,7 @@
+
+# Local backups and temp files
+/backups/
+*.bak
+*.tmp
+*top_backup
+
