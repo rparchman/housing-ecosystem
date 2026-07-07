@@ -87,19 +87,20 @@ jobs:
             echo "file=helm/housing-ecosystem/values-staging.yaml" >> $GITHUB_OUTPUT
           else
             echo "file=helm/housing-ecosystem/values.yaml" >> $GITHUB_OUTPUT
+          fi
 
       - name: Install Helm
         uses: azure/setup-helm@v4
         with:
           version: "v3.14.0"
 
-- name: Helm upgrade (multi-region)
-  run: |
-    REGION="${{ github.event.inputs.region || 'us-east-1' }}"
-    RELEASE="housing-ecosystem-${REGION}"
-    helm upgrade --install "$RELEASE" helm/housing-ecosystem \
-      -f ${{ steps.envfile.outputs.file }} \
-      --set api.image=${{ secrets.REGISTRY }}/housing-api:${{ github.sha }} \
-      --set scheduler.image=${{ secrets.REGISTRY }}/gis-scheduler:${{ github.sha }} \
-      --namespace housing-${REGION} \
-      --create-namespace
+      - name: Helm upgrade (multi-region)
+        run: |
+          REGION="${{ github.event.inputs.region || 'us-east-1' }}"
+          RELEASE="housing-ecosystem-${REGION}"
+          helm upgrade --install "$RELEASE" helm/housing-ecosystem \
+            -f ${{ steps.envfile.outputs.file }} \
+            --set api.image=${{ secrets.REGISTRY }}/housing-api:${{ github.sha }} \
+            --set scheduler.image=${{ secrets.REGISTRY }}/gis-scheduler:${{ github.sha }} \
+            --namespace housing-${REGION} \
+            --create-namespace
