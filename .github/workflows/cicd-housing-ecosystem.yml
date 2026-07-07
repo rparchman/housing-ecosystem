@@ -18,7 +18,7 @@ jobs:
   build-and-push:
     runs-on: ubuntu-latest
     env:
-      REGISTRY: your-registry
+      REGISTRY: ${{ secrets.REGISTRY }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -29,7 +29,7 @@ jobs:
       - name: Login to registry
         uses: docker/login-action@v3
         with:
-          registry: ${{ env.REGISTRY }}
+          registry: ${{ secrets.REGISTRY }}
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
 
@@ -40,7 +40,7 @@ jobs:
           file: deployment/api/Dockerfile
           push: true
           tags: |
-            ${{ env.REGISTRY }}/housing-api:${{ github.sha }}
+            ${{ secrets.REGISTRY }}/housing-api:${{ github.sha }}
 
       - name: Build and push Scheduler image
         uses: docker/build-push-action@v5
@@ -49,13 +49,14 @@ jobs:
           file: deployment/scheduler/Dockerfile
           push: true
           tags: |
-            ${{ env.REGISTRY }}/gis-scheduler:${{ github.sha }}
+            ${{ secrets.REGISTRY }}/gis-scheduler:${{ github.sha }}
 
   deploy:
     needs: build-and-push
     runs-on: ubuntu-latest
     env:
       KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
+      REGISTRY: ${{ secrets.REGISTRY }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -93,7 +94,7 @@ jobs:
           RELEASE="housing-ecosystem-${REGION}"
           helm upgrade --install "$RELEASE" helm/housing-ecosystem \
             -f ${{ steps.envfile.outputs.file }} \
-            --set api.image=${{ env.REGISTRY }}/housing-api:${{ github.sha }} \
-            --set scheduler.image=${{ env.REGISTRY }}/gis-scheduler:${{ github.sha }} \
+            --set api.image=${{ secrets.REGISTRY }}/housing-api:${{ github.sha }} \
+            --set scheduler.image=${{ secrets.REGISTRY }}/gis-scheduler:${{ github.sha }} \
             --namespace housing-${REGION} \
             --create-namespace
