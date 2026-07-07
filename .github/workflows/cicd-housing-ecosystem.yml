@@ -22,6 +22,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          clean: true
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -60,6 +63,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          clean: true
 
       - name: Set up kubectl
         uses: azure/setup-kubectl@v4
@@ -81,7 +87,6 @@ jobs:
             echo "file=helm/housing-ecosystem/values-staging.yaml" >> $GITHUB_OUTPUT
           else
             echo "file=helm/housing-ecosystem/values.yaml" >> $GITHUB_OUTPUT
-          fi
 
       - name: Install Helm
         uses: azure/setup-helm@v4
@@ -98,3 +103,4 @@ jobs:
             --set scheduler.image=${{ secrets.REGISTRY }}/gis-scheduler:${{ github.sha }} \
             --namespace housing-${REGION} \
             --create-namespace
+
