@@ -11,3 +11,9 @@ data/raw/
 *.shp
 *.zip
 *.geojson
+# GIS raw data (too large for GitHub)
+data/raw/
+*.dbf
+*.shp
+*.zip
+*.geojson
