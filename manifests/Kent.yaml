@@ -1,0 +1,18 @@
+county: Kent, MI
+source:
+  name: Kent County Public Viewer
+  url: https://gis.kentcountymi.gov/public/publicviewerjs/
+  license: unknown
+layers:
+- name: parcels
+  file: ''
+  format: unknown
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+contact:
+  name: ''
+  email: ''
+notes: Auto-candidate (score_reasons=gis;viewer). Verify before ingest.

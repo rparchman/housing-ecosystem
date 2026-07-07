@@ -1,0 +1,18 @@
+county: Charlevoix, MI
+source:
+  name: Parcel Search & Mapping - Charlevoix County, Michigan
+  url: https://www.charlevoixcounty.org/online_services/index.php
+  license: unknown
+layers:
+- name: parcels
+  file: https://imagery.michigan.gov/server/services/Michigan_imagery_public/MapServer/WMSServer
+  format: arcgis-rest
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+contact:
+  name: ''
+  email: ''
+notes: Auto-candidate (score_reasons=none). Verify before ingest.

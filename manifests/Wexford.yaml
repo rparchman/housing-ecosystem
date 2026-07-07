@@ -1,0 +1,18 @@
+county: Wexford, MI
+source:
+  name: Interactive GIS Maps - Wexford County, Michigan
+  url: https://wexfordcounty.org/?page_id=705
+  license: unknown
+layers:
+- name: parcels
+  file: ''
+  format: unknown
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+contact:
+  name: ''
+  email: ''
+notes: Auto-candidate (score_reasons=none). Verify before ingest.

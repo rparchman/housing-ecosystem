@@ -1,0 +1,18 @@
+county: Osceola, MI
+source:
+  name: Osceola County Parcel Viewer
+  url: https://experience.arcgis.com/experience/b12c7ea7c1584962a572b9b740476ffc
+  license: unknown
+layers:
+- name: parcels
+  file: https://services.arcgisonline.com/arcgis/rest/services/Elevation/World_Hillshade/MapServer/0
+  format: arcgis-rest
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+contact:
+  name: ''
+  email: ''
+notes: Auto-candidate (score_reasons=arcgis;gis). Verify before ingest.

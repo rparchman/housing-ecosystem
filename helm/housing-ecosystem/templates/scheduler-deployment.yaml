@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "housing-ecosystem.schedulerName" . }}
+  labels:
+    app: {{ include "housing-ecosystem.schedulerName" . }}
+spec:
+  replicas: {{ .Values.scheduler.replicas }}
+  selector:
+    matchLabels:
+      app: {{ include "housing-ecosystem.schedulerName" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "housing-ecosystem.schedulerName" . }}
+    spec:
+      containers:
+        - name: scheduler
+          image: {{ .Values.scheduler.image }}
+          envFrom:
+            - configMapRef:
+                name: {{ include "housing-ecosystem.schedulerName" . }}-config
+            - secretRef:
+                name: {{ include "housing-ecosystem.schedulerName" . }}-secrets
+          resources:
+            requests:
+              cpu: {{ .Values.scheduler.resources.requests.cpu }}
+              memory: {{ .Values.scheduler.resources.requests.memory }}
+            limits:
+              cpu: {{ .Values.scheduler.resources.limits.cpu }}
+              memory: {{ .Values.scheduler.resources.limits.memory }}

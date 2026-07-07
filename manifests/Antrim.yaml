@@ -1,0 +1,18 @@
+county: Antrim, MI
+source:
+  name: Antrim County GIS - ArcGIS
+  url: https://antrimcounty.maps.arcgis.com/apps/webappviewer/index.html?id=45d02244ef1b4e67ac47a4cd348d88b8
+  license: unknown
+layers:
+- name: parcels
+  file: https://services.arcgisonline.com/arcgis/rest/services/Elevation/World_Hillshade/MapServer/0
+  format: arcgis-rest
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+contact:
+  name: ''
+  email: ''
+notes: Auto-candidate (score_reasons=arcgis;gis;maps;viewer). Verify before ingest.

@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "housing-ecosystem.apiName" . }}
+  labels:
+    app: {{ include "housing-ecosystem.apiName" . }}
+spec:
+  replicas: {{ .Values.api.replicas }}
+  selector:
+    matchLabels:
+      app: {{ include "housing-ecosystem.apiName" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "housing-ecosystem.apiName" . }}
+    spec:
+      containers:
+        - name: api
+          image: {{ .Values.api.image }}
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: {{ include "housing-ecosystem.apiName" . }}-config
+            - secretRef:
+                name: {{ include "housing-ecosystem.apiName" . }}-secrets
+          resources:
+            requests:
+              cpu: {{ .Values.api.resources.requests.cpu }}
+              memory: {{ .Values.api.resources.requests.memory }}
+            limits:
+              cpu: {{ .Values.api.resources.limits.cpu }}
+              memory: {{ .Values.api.resources.limits.memory }}

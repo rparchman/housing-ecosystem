@@ -1,0 +1,18 @@
+county: Genesee, MI
+source:
+  name: GIS - Genesee County Mi
+  url: https://www.geneseecountymi.gov/departments/gis/index.php
+  license: unknown
+layers:
+- name: parcels
+  file: ''
+  format: unknown
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+contact:
+  name: ''
+  email: ''
+notes: Auto-candidate (score_reasons=gis). Verify before ingest.

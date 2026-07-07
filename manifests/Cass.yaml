@@ -1,0 +1,18 @@
+county: Cass, MI
+source:
+  name: Geographic Information Systems-2023 | Cass County, MI
+  url: https://www.casscountymi.org/1345/Geographic-Information-Systems
+  license: unknown
+layers:
+- name: parcels
+  file: ''
+  format: unknown
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+contact:
+  name: ''
+  email: ''
+notes: Auto-candidate (score_reasons=none). Verify before ingest.

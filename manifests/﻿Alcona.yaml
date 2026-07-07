@@ -1,0 +1,20 @@
+county: "\uFEFFAlcona, MI"
+source:
+  name: Skip to content
+  url: '#'
+  license: unknown
+layers:
+- name: parcels
+  file: ''
+  format: unknown
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+  transform_script: ''
+  validate_script: ''
+contact:
+  name: ''
+  email: ''
+notes: Discovered automatically; verify URL and parcel layer/file names before ingest.

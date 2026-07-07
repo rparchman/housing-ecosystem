@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: housing-api
+  labels:
+    app: housing-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: housing-api
+  template:
+    metadata:
+      labels:
+        app: housing-api
+    spec:
+      containers:
+        - name: housing-api
+          image: your-registry/housing-api:latest
+          ports:
+            - containerPort: 80
+          env:
+            - name: ENV
+              value: "production"
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"

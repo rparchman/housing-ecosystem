@@ -1,0 +1,18 @@
+county: Leelanau, MI
+source:
+  name: Leelanau County | GIS
+  url: https://leelanau.maps.arcgis.com/home/index.html
+  license: unknown
+layers:
+- name: parcels
+  file: https://leelanau.maps.arcgis.com/sharing/rest/community/groups/07c31060dccc442188615b0f2f79fbad
+  format: arcgis-rest
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+contact:
+  name: ''
+  email: ''
+notes: Auto-candidate (score_reasons=arcgis;gis;maps). Verify before ingest.

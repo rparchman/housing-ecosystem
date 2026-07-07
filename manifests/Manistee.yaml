@@ -1,0 +1,18 @@
+county: Manistee, MI
+source:
+  name: Property Search (ArcGIS Map as of 3/24/26) | Manistee County, MI
+  url: https://www.manisteecountymi.gov/333/Property-Search
+  license: unknown
+layers:
+- name: parcels
+  file: ''
+  format: unknown
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+contact:
+  name: ''
+  email: ''
+notes: Auto-candidate (score_reasons=none). Verify before ingest.

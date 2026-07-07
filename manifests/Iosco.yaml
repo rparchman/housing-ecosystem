@@ -1,0 +1,18 @@
+county: Iosco, MI
+source:
+  name: Online Services - Iosco County, MI
+  url: https://iosco.net/online-services/
+  license: unknown
+layers:
+- name: parcels
+  file: ''
+  format: unknown
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+contact:
+  name: ''
+  email: ''
+notes: Auto-candidate (score_reasons=none). Verify before ingest.

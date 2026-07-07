@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  api:
+    build: ./api
+    container_name: housing_api
+    volumes:
+      - ../api:/app/api
+      - ../pipeline:/app/pipeline
+    restart: always
+    ports:
+      - "80:80"
+
+  scheduler:
+    build: ./scheduler
+    container_name: gis_scheduler
+    volumes:
+      - ../pipeline:/app/pipeline
+      - ../pipeline/config:/app/pipeline/config
+    restart: always

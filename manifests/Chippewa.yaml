@@ -1,0 +1,18 @@
+county: Chippewa, MI
+source:
+  name: Chippewa county Michigan
+  url: https://www.chippewacountymi.gov/
+  license: unknown
+layers:
+- name: parcels
+  file: ''
+  format: unknown
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+contact:
+  name: ''
+  email: ''
+notes: Auto-candidate (score_reasons=none). Verify before ingest.

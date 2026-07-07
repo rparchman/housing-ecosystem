@@ -1,0 +1,18 @@
+county: Baraga, MI
+source:
+  name: Baraga County GIS Maps (Michigan)
+  url: https://www.countyoffice.org/mi-baraga-county-gis-maps/
+  license: unknown
+layers:
+- name: parcels
+  file: ''
+  format: unknown
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+contact:
+  name: ''
+  email: ''
+notes: Auto-candidate (score_reasons=gis;maps). Verify before ingest.

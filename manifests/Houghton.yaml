@@ -1,0 +1,18 @@
+county: Houghton, MI
+source:
+  name: Map Viewer - houghtoncounty.maps.arcgis.com
+  url: https://houghtoncounty.maps.arcgis.com/apps/mapviewer/index.html
+  license: unknown
+layers:
+- name: parcels
+  file: https://services.arcgisonline.com/arcgis/rest/services/Elevation/World_Hillshade/MapServer/0
+  format: arcgis-rest
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+contact:
+  name: ''
+  email: ''
+notes: Auto-candidate (score_reasons=arcgis;gis;maps;viewer). Verify before ingest.

@@ -1,0 +1,38 @@
+# Default (dev) values
+global:
+  appName: housing-ecosystem
+
+api:
+  image: your-registry/housing-api:latest
+  replicas: 1
+  resources:
+    requests:
+      cpu: "250m"
+      memory: "256Mi"
+    limits:
+      cpu: "500m"
+      memory: "512Mi"
+
+scheduler:
+  image: your-registry/gis-scheduler:latest
+  replicas: 1
+  resources:
+    requests:
+      cpu: "100m"
+      memory: "128Mi"
+    limits:
+      cpu: "250m"
+      memory: "256Mi"
+
+ingress:
+  enabled: true
+  host: dev.housing.yourdomain.com
+
+config:
+  LOG_LEVEL: "info"
+
+secrets:
+  SLACK_WEBHOOK: ""
+  EMAIL_SENDER: ""
+  EMAIL_PASSWORD: ""
+  EMAIL_RECIPIENT: ""

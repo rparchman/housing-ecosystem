@@ -1,0 +1,18 @@
+county: Oceana, MI
+source:
+  name: GIS Interactive Map - Oceana County Michigan
+  url: https://oceana.mi.us/government/online-services-alt/online-tools-data/gis-interactive-map/
+  license: unknown
+layers:
+- name: parcels
+  file: ''
+  format: unknown
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+contact:
+  name: ''
+  email: ''
+notes: Auto-candidate (score_reasons=gis;data). Verify before ingest.

@@ -1,0 +1,18 @@
+county: Monroe, MI
+source:
+  name: Monroe County - Michigan - GIS
+  url: https://monroe-county-michigan-gis-monroemi.hub.arcgis.com/
+  license: unknown
+layers:
+- name: parcels
+  file: https://www.arcgis.com/sharing/rest/community/groups/c04500cb34c34d6aa768adc1ab3f2b9d
+  format: arcgis-rest
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+contact:
+  name: ''
+  email: ''
+notes: Auto-candidate (score_reasons=arcgis;gis). Verify before ingest.

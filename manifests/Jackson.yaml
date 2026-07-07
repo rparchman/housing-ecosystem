@@ -1,0 +1,18 @@
+county: Jackson, MI
+source:
+  name: Jackson County Tax Parcel Viewer
+  url: https://gis.mijackson.org/TaxViewer/
+  license: unknown
+layers:
+- name: parcels
+  file: https://gis.mijackson.org/countygis/rest/services/ParcelViewer/Annotations/MapServer/1
+  format: arcgis-rest
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+contact:
+  name: ''
+  email: ''
+notes: Auto-candidate (score_reasons=gis;viewer). Verify before ingest.

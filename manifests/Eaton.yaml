@@ -1,0 +1,18 @@
+county: Eaton, MI
+source:
+  name: Eaton County Michigan - ArcGIS
+  url: https://ecgis.maps.arcgis.com/home/index.html
+  license: unknown
+layers:
+- name: parcels
+  file: https://ecgis.maps.arcgis.com/sharing/rest/community/groups/4bd21eb9a8ea4e91b76ff4b9691b9c62
+  format: arcgis-rest
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+contact:
+  name: ''
+  email: ''
+notes: Auto-candidate (score_reasons=arcgis;gis;maps). Verify before ingest.

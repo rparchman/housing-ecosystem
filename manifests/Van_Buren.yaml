@@ -1,0 +1,18 @@
+county: Van Buren, MI
+source:
+  name: Parcel Viewer - Interactive Web Map - Mango
+  url: https://gis.vanburencountymi.gov/van-buren-county-mi/maps/139519/parcel-viewer-beta-
+  license: unknown
+layers:
+- name: parcels
+  file: ''
+  format: unknown
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+contact:
+  name: ''
+  email: ''
+notes: Auto-candidate (score_reasons=parcel;gis;maps;viewer). Verify before ingest.

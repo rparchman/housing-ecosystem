@@ -1,0 +1,18 @@
+county: Emmet, MI
+source:
+  name: GIS | Emmet County, MI
+  url: https://www.emmetcounty.org/departments/gis/index.php
+  license: unknown
+layers:
+- name: parcels
+  file: https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/0
+  format: arcgis-rest
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+contact:
+  name: ''
+  email: ''
+notes: Auto-candidate (score_reasons=gis). Verify before ingest.

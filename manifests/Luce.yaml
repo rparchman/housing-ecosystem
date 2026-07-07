@@ -1,0 +1,18 @@
+county: Luce, MI
+source:
+  name: Luce County Map
+  url: https://www.arcgis.com/home/item.html?id=d829cf5ae1514582882c3d96e2b1d21d
+  license: unknown
+layers:
+- name: parcels
+  file: https://www.arcgis.com/home/js/arcgis-online-4.x/routes/item/t9n/item_en.json
+  format: arcgis-rest
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+contact:
+  name: ''
+  email: ''
+notes: Auto-candidate (score_reasons=arcgis;gis). Verify before ingest.

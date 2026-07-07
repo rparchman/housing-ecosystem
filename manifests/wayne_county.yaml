@@ -1,0 +1,23 @@
+county: Wayne County, MI
+source:
+  name: Wayne County GIS Open Data
+  url: https://<county-url>/wayne_parcels.zip
+  license: public domain
+layers:
+- name: parcels
+  file: parcels.shp
+  parcel_id_field: PID_All
+  format: shapefile
+  last_updated: 2026-06-29
+- name: address_points
+  file: addresses.geojson
+  format: geojson
+ingest:
+  frequency: monthly
+  transform_script: tools/normalize_wayne.py
+  validate_script: tools/validate_parcels.py
+contact:
+  name: GIS Dept
+  email: gis@waynecounty.example
+notes: Use authoritative parcels for legal joins; fallback to commercial baseline
+  for missing parcels.

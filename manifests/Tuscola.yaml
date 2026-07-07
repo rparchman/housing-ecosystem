@@ -1,0 +1,18 @@
+county: Tuscola, MI
+source:
+  name: GIS - Tuscola County
+  url: https://www.tuscolacounty.org/gis/
+  license: unknown
+layers:
+- name: parcels
+  file: ''
+  format: unknown
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+contact:
+  name: ''
+  email: ''
+notes: Auto-candidate (score_reasons=gis). Verify before ingest.

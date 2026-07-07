@@ -1,0 +1,19 @@
+county: Mason, MI
+source:
+  name: ArcGIS Web Application
+  url: https://masoncoassessor.maps.arcgis.com/apps/webappviewer/index.html
+  license: unknown
+layers:
+- name: parcels
+  file: https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/0
+  format: arcgis-rest
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+contact:
+  name: ''
+  email: ''
+notes: Auto-candidate (score_reasons=arcgis;assessor;gis;maps;viewer). Verify before
+  ingest.

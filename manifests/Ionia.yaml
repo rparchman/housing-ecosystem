@@ -1,0 +1,18 @@
+county: Ionia, MI
+source:
+  name: Ionia County Tax Parcel Viewer - ArcGIS
+  url: https://ioniacounty.maps.arcgis.com/apps/webappviewer/index.html?id=5580408d1a1145cebb561641a5c9895c
+  license: unknown
+layers:
+- name: parcels
+  file: https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/0
+  format: arcgis-rest
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+contact:
+  name: ''
+  email: ''
+notes: Auto-candidate (score_reasons=arcgis;gis;maps;viewer). Verify before ingest.

@@ -1,0 +1,18 @@
+county: Allegan, MI
+source:
+  name: Parcel Viewer - Allegan County, Michigan
+  url: https://gis.allegancounty.org/portal/apps/webappviewer/index.html?id=1df7bb10376c4aa58236914ac0680650
+  license: unknown
+layers:
+- name: parcels
+  file: https://services.arcgisonline.com/arcgis/rest/services/Elevation/World_Hillshade/MapServer/0
+  format: arcgis-rest
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+contact:
+  name: ''
+  email: ''
+notes: Auto-candidate (score_reasons=gis;viewer). Verify before ingest.

@@ -1,0 +1,18 @@
+county: Iron, MI
+source:
+  name: ArcGIS - Iron County GIS
+  url: https://irongis.maps.arcgis.com/home/index.html
+  license: unknown
+layers:
+- name: parcels
+  file: https://irongis.maps.arcgis.com/sharing/rest/community/groups/f0be547a58c348efb1b585ddbd09ff06
+  format: arcgis-rest
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+contact:
+  name: ''
+  email: ''
+notes: Auto-candidate (score_reasons=arcgis;gis;maps). Verify before ingest.

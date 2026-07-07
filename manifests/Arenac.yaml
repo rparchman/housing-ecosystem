@@ -1,0 +1,18 @@
+county: Arenac, MI
+source:
+  name: Arenac County Tax Parcel Viewer - experience.arcgis.com
+  url: https://experience.arcgis.com/experience/5789212c1fb946ebb83ca42b4478f5b8
+  license: unknown
+layers:
+- name: parcels
+  file: https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/0
+  format: arcgis-rest
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+contact:
+  name: ''
+  email: ''
+notes: Auto-candidate (score_reasons=arcgis;gis). Verify before ingest.

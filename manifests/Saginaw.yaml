@@ -1,0 +1,18 @@
+county: Saginaw, MI
+source:
+  name: Saginaw Area GIS Authority
+  url: https://www.sagagis.org/
+  license: unknown
+layers:
+- name: parcels
+  file: ''
+  format: unknown
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+contact:
+  name: ''
+  email: ''
+notes: Auto-candidate (score_reasons=gis). Verify before ingest.

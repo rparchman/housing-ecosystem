@@ -1,0 +1,18 @@
+county: Gratiot, MI
+source:
+  name: Geographic Information Services (GIS) | Gratiot County, MI
+  url: https://www.gratiotmi.com/437/Geographic-Information-Services-GIS
+  license: unknown
+layers:
+- name: parcels
+  file: ''
+  format: unknown
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+contact:
+  name: ''
+  email: ''
+notes: Auto-candidate (score_reasons=gis). Verify before ingest.

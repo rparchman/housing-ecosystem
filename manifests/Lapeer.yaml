@@ -1,0 +1,18 @@
+county: Lapeer, MI
+source:
+  name: Mapping Information - Lapeer County, MI
+  url: https://lapeercountymi.gov/departments/treasurer/mapping_information/index.php
+  license: unknown
+layers:
+- name: parcels
+  file: ''
+  format: unknown
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+contact:
+  name: ''
+  email: ''
+notes: Auto-candidate (score_reasons=none). Verify before ingest.

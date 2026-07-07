@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gis-scheduler
+  labels:
+    app: gis-scheduler
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gis-scheduler
+  template:
+    metadata:
+      labels:
+        app: gis-scheduler
+    spec:
+      containers:
+        - name: gis-scheduler
+          image: your-registry/gis-scheduler:latest
+          env:
+            - name: ENV
+              value: "production"
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "250m"
+              memory: "256Mi"

@@ -1,0 +1,21 @@
+county,source_url,candidate,notes
+Alcona,https://beacon.schneidercorp.com/?site=AlconaCountyMI,,none
+Alger,https://www.countyoffice.org/mi-alger-county-gis-maps/,,"error:Page.evaluate: Target page, context or browser has been closed"
+Allegan,https://gis.allegancounty.org/portal/apps/webappviewer/index.html?id=1df7bb10376c4aa58236914ac0680650,https://services.arcgisonline.com/arcgis/rest/services/Elevation/World_Hillshade/MapServer,found
+Alpena,https://alpenacounty.org/240/Equalization-Office,,none
+Antrim,https://antrimcounty.maps.arcgis.com/apps/webappviewer/index.html?id=45d02244ef1b4e67ac47a4cd348d88b8,https://antrimcounty.maps.arcgis.com/apps/webappviewer/index.html,found
+Arenac,https://experience.arcgis.com/experience/5789212c1fb946ebb83ca42b4478f5b8,https://experience.arcgis.com/experience/5789212c1fb946ebb83ca42b4478f5b8,found
+Baraga,https://www.countyoffice.org/mi-baraga-county-gis-maps/,,none
+Barry,https://www.barrycounty.org/property_search/index.php,,none
+Bay,https://www.baycountymi.gov/departments/geographic_information_systems_(gis)/index.php,,none
+Benzie,https://www.benzieco.gov/government/equalization/index.php,,none
+Berrien,https://gis.berriencountymi.gov/portal/home/,,none
+Branch,https://branchcounty.gov/departments/equalization/gis-map-viewer/,,none
+Calhoun,https://maps.calhouncountymi.gov/,,none
+Cass,https://www.casscountymi.org/1345/Geographic-Information-Systems,,none
+Charlevoix,https://www.charlevoixcounty.org/online_services/index.php,https://imagery.michigan.gov/server/services/Michigan_imagery_public/MapServer/WMSServer,found
+Cheboygan,https://www.cheboygancounty.net/departments-services/equalization/gis/,,none
+Chippewa,https://www.chippewacountymi.gov/,,none
+Clare,https://app.fetchgis.com/?currentMap=clare,https://www.arcgis.com/sharing/rest/content/items/de26a3cf4cc9451298ea173c4b324736/resources/styles/root.json,found
+Clinton,https://www.clinton-county.org/238/Online-Mapping,,none
+Crawford,https://www.crawfordco.org/online-services/,,none

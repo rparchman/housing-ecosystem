@@ -1,0 +1,18 @@
+county: Roscommon, MI
+source:
+  name: Roscommon Parcels - ArcGIS
+  url: https://roscommoncounty.maps.arcgis.com/apps/webappviewer/index.html?id=d0b928a07dfc4566bf4ed802dd73a43b
+  license: unknown
+layers:
+- name: parcels
+  file: https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/0
+  format: arcgis-rest
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+contact:
+  name: ''
+  email: ''
+notes: Auto-candidate (score_reasons=arcgis;gis;maps;viewer). Verify before ingest.

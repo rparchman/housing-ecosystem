@@ -1,0 +1,18 @@
+county: Ottawa, MI
+source:
+  name: Property Mapping - Ottawa County
+  url: https://gis.miottawa.org/ottawa/geocortex/propertymapping/
+  license: unknown
+layers:
+- name: parcels
+  file: https://gis.miottawa.org/arcgis/rest/services/HostedServices/TileIndex/MapServer/1
+  format: arcgis-rest
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+contact:
+  name: ''
+  email: ''
+notes: Auto-candidate (score_reasons=gis). Verify before ingest.

@@ -1,0 +1,11 @@
+county,source_url,layer_candidate,downloaded,info,notes
+Alcona,https://beacon.schneidercorp.com/?site=AlconaCountyMI,,no,no_layer_candidate,
+Alger,https://www.countyoffice.org/mi-alger-county-gis-maps/,,no,no_layer_candidate,
+Allegan,https://gis.allegancounty.org/portal/apps/webappviewer/index.html?id=1df7bb10376c4aa58236914ac0680650,https://services.arcgisonline.com/arcgis/rest/services/Elevation/World_Hillshade/MapServer/0,yes,200,probed_layer;
+Alpena,https://alpenacounty.org/240/Equalization-Office,,no,no_layer_candidate,
+Antrim,https://antrimcounty.maps.arcgis.com/apps/webappviewer/index.html?id=45d02244ef1b4e67ac47a4cd348d88b8,,no,no_layer_candidate,
+Arenac,https://experience.arcgis.com/experience/5789212c1fb946ebb83ca42b4478f5b8,,no,no_layer_candidate,
+Baraga,https://www.countyoffice.org/mi-baraga-county-gis-maps/,,no,no_layer_candidate,
+Barry,https://www.barrycounty.org/property_search/index.php,,no,no_layer_candidate,
+Bay,https://www.baycountymi.gov/departments/geographic_information_systems_(gis)/index.php,,no,no_layer_candidate,
+Benzie,https://www.benzieco.gov/government/equalization/index.php,,no,no_layer_candidate,

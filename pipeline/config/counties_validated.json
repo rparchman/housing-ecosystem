@@ -1,0 +1,28 @@
+{
+  "monroe": {
+    "name": "Monroe County",
+    "gis_url": "https://maps.monroemi.gov/arcgis/rest/services/Parcels/MapServer/0",
+    "host": "maps.monroemi.gov",
+    "dns": {
+      "ok": false,
+      "error": "[Errno 11001] getaddrinfo failed"
+    },
+    "status": "dns_failed"
+  },
+  "macomb": {
+    "name": "Macomb County",
+    "gis_url": "https://services2.arcgis.com/qvkbeam7Wirps6zC/ArcGIS/rest/services/Parcels/FeatureServer/0",
+    "host": "services2.arcgis.com",
+    "dns": {
+      "ok": true,
+      "ips": [
+        "150.171.110.209"
+      ]
+    },
+    "candidates_count": 0,
+    "candidates": [],
+    "prioritized_candidates": [],
+    "tested": [],
+    "status": "no_features_found"
+  }
+}

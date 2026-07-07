@@ -1,0 +1,18 @@
+county: Marquette, MI
+source:
+  name: GIS Mapping & Assessing Data - Marquette County,MI
+  url: https://www.co.marquette.mi.us/departments/equalization_tax_roll/gis_mapping.php
+  license: unknown
+layers:
+- name: parcels
+  file: ''
+  format: unknown
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+contact:
+  name: ''
+  email: ''
+notes: Auto-candidate (score_reasons=gis). Verify before ingest.

@@ -1,0 +1,99 @@
+name: CI/CD - Housing Ecosystem
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Environment (dev|staging|prod)"
+        required: true
+        default: "dev"
+      region:
+        description: "Region (us-east-1|us-west-2|eu-central-1)"
+        required: true
+        default: "us-east-1"
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    env:
+      REGISTRY: your-registry
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+
+      - name: Build and push API image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: deployment/api/Dockerfile
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/housing-api:${{ github.sha }}
+
+      - name: Build and push Scheduler image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: deployment/scheduler/Dockerfile
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/gis-scheduler:${{ github.sha }}
+
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    env:
+      KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up kubectl
+        uses: azure/setup-kubectl@v4
+        with:
+          version: "latest"
+
+      - name: Configure kubeconfig
+        run: |
+          mkdir -p ~/.kube
+          echo "${KUBE_CONFIG}" > ~/.kube/config
+
+      - name: Set environment values file
+        id: envfile
+        run: |
+          ENV="${{ github.event.inputs.environment || 'dev' }}"
+          if [ "$ENV" = "prod" ]; then
+            echo "file=helm/housing-ecosystem/values-prod.yaml" >> $GITHUB_OUTPUT
+          elif [ "$ENV" = "staging" ]; then
+            echo "file=helm/housing-ecosystem/values-staging.yaml" >> $GITHUB_OUTPUT
+          else
+            echo "file=helm/housing-ecosystem/values.yaml" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Install Helm
+        uses: azure/setup-helm@v4
+        with:
+          version: "v3.14.0"
+
+      - name: Helm upgrade (multi-region)
+        run: |
+          REGION="${{ github.event.inputs.region || 'us-east-1' }}"
+          RELEASE="housing-ecosystem-${REGION}"
+          helm upgrade --install "$RELEASE" helm/housing-ecosystem \
+            -f ${{ steps.envfile.outputs.file }} \
+            --set api.image=${{ env.REGISTRY }}/housing-api:${{ github.sha }} \
+            --set scheduler.image=${{ env.REGISTRY }}/gis-scheduler:${{ github.sha }} \
+            --namespace housing-${REGION} \
+            --create-namespace

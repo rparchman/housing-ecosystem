@@ -1,0 +1,18 @@
+county: Menominee, MI
+source:
+  name: Menominee County | Departments » Land Information Services (GIS)
+  url: https://www.menomineecounty.com/departments/land-information-services-gis/
+  license: unknown
+layers:
+- name: parcels
+  file: ''
+  format: unknown
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+contact:
+  name: ''
+  email: ''
+notes: Auto-candidate (score_reasons=gis). Verify before ingest.

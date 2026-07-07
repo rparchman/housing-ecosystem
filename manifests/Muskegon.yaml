@@ -1,0 +1,18 @@
+county: Muskegon, MI
+source:
+  name: Muskegon County Property Information Viewer
+  url: https://maps.muskegoncountygis.com/portal/apps/webappviewer/index.html?id=4741564b03aa46de80769afacae95f2c
+  license: unknown
+layers:
+- name: parcels
+  file: https://maps.muskegoncountygis.com/arcgis/rest/services/Musk_Basemap_L/MapServer/0
+  format: arcgis-rest
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+contact:
+  name: ''
+  email: ''
+notes: Auto-candidate (score_reasons=gis;maps;viewer). Verify before ingest.

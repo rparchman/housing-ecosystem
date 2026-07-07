@@ -1,0 +1,18 @@
+county: Oakland, MI
+source:
+  name: Property Gateway v. 7.4 - Oakland County, Michigan
+  url: https://gis.oakgov.com/propertygateway/home.mvc
+  license: unknown
+layers:
+- name: parcels
+  file: https://gisservices.oakgov.com/arcgis/rest/services/BaseMap/EnterpriseStandardBasemapMap/MapServer/102
+  format: arcgis-rest
+  parcel_id_field: ''
+  geometry_field: ''
+  last_updated: ''
+ingest:
+  frequency: monthly
+contact:
+  name: ''
+  email: ''
+notes: Auto-candidate (score_reasons=gis). Verify before ingest.
