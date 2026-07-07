@@ -5,12 +5,12 @@ WORKDIR /app
 # Install system dependencies
 RUN apt-get update && apt-get install -y nginx && apt-get clean
 
-# Copy application code
-COPY ../../api /app/api
-COPY ../../pipeline /app/pipeline
-COPY gunicorn_conf.py /app/gunicorn_conf.py
-COPY requirements.txt /app/requirements.txt
-COPY nginx.conf /etc/nginx/nginx.conf
+# Copy application code (relative to build context = repo root)
+COPY api /app/api
+COPY pipeline /app/pipeline
+COPY deployment/api/gunicorn_conf.py /app/gunicorn_conf.py
+COPY deployment/api/requirements.txt /app/requirements.txt
+COPY deployment/api/nginx.conf /etc/nginx/nginx.conf
 
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
