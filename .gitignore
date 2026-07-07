@@ -5,3 +5,9 @@
 *.tmp
 *top_backup
 
+# GIS raw data (too large for GitHub)
+data/raw/
+*.dbf
+*.shp
+*.zip
+*.geojson
