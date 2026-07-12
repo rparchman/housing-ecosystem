@@ -19,6 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       REGISTRY: ${{ secrets.REGISTRY }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -49,7 +50,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: deployment/scheduler/Dockerfile
+          file: scheduler/Dockerfile
           push: true
           tags: |
             ${{ secrets.REGISTRY }}/gis-scheduler:${{ github.sha }}
@@ -60,6 +61,7 @@ jobs:
     env:
       KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
       REGISTRY: ${{ secrets.REGISTRY }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -87,7 +89,6 @@ jobs:
             echo "file=helm/housing-ecosystem/values-staging.yaml" >> $GITHUB_OUTPUT
           else
             echo "file=helm/housing-ecosystem/values.yaml" >> $GITHUB_OUTPUT
-          fi
 
       - name: Install Helm
         uses: azure/setup-helm@v4
