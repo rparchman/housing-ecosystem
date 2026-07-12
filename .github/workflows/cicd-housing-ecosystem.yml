@@ -80,15 +80,16 @@ jobs:
           echo "${KUBE_CONFIG}" > ~/.kube/config
 
       - name: Set environment values file
-        id: envfile
-        run: |
-          ENV="${{ github.event.inputs.environment || 'dev' }}"
-          if [ "$ENV" = "prod" ]; then
-            echo "file=helm/housing-ecosystem/values-prod.yaml" >> $GITHUB_OUTPUT
-          elif [ "$ENV" = "staging" ]; then
-            echo "file=helm/housing-ecosystem/values-staging.yaml" >> $GITHUB_OUTPUT
-          else
-            echo "file=helm/housing-ecosystem/values.yaml" >> $GITHUB_OUTPUT
+  id: envfile
+  run: |
+    ENV="${{ github.event.inputs.environment || 'dev' }}"
+    if [ "$ENV" = "prod" ]; then
+      echo "file=helm/housing-ecosystem/values-prod.yaml" >> $GITHUB_OUTPUT
+    elif [ "$ENV" = "staging" ]; then
+      echo "file=helm/housing-ecosystem/values-staging.yaml" >> $GITHUB_OUTPUT
+    else
+      echo "file=helm/housing-ecosystem/values.yaml" >> $GITHUB_OUTPUT
+    fi
 
       - name: Install Helm
         uses: azure/setup-helm@v4
