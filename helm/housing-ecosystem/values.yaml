@@ -1,10 +1,14 @@
 # Default (dev) values
 global:
   appName: housing-ecosystem
+  imagePullSecrets:
+    - name: ghcr-secret
 
 api:
-  image: your-registry/housing-api:latest
+  image: ghcr.io/rparchman/housing-api:3bbe324d9d03d4e6c151add2542153c37184bba2
   replicas: 1
+  imagePullSecrets:
+    - name: ghcr-secret
   resources:
     requests:
       cpu: "250m"
@@ -14,8 +18,10 @@ api:
       memory: "512Mi"
 
 scheduler:
-  image: your-registry/gis-scheduler:latest
+  image: ghcr.io/rparchman/gis-scheduler:3bbe324d9d03d4e6c151add2542153c37184bba2
   replicas: 1
+  imagePullSecrets:
+    - name: ghcr-secret
   resources:
     requests:
       cpu: "100m"

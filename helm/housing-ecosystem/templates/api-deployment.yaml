@@ -14,6 +14,8 @@ spec:
       labels:
         app: {{ include "housing-ecosystem.apiName" . }}
     spec:
+      imagePullSecrets:
+        - name: {{ (index .Values.api.imagePullSecrets 0).name }}
       containers:
         - name: api
           image: {{ .Values.api.image }}
