@@ -6,7 +6,7 @@ WORKDIR /app
 COPY scheduler/scheduler_service.py /app/scheduler_service.py
 
 # Copy pipeline directory
-COPY pipeline /app/pipeline
+COPY housing-ecosystem/pipeline /app/pipeline
 
 # Copy requirements
 COPY scheduler/requirements.txt /app/requirements.txt
