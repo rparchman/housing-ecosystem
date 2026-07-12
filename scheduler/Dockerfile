@@ -5,8 +5,8 @@ WORKDIR /app
 # Copy scheduler service
 COPY scheduler/scheduler_service.py /app/scheduler_service.py
 
-# Copy pipeline directory
-COPY housing-ecosystem/pipeline /app/pipeline
+# Copy pipeline directory (correct path at repo root)
+COPY pipeline /app/pipeline
 
 # Copy requirements
 COPY scheduler/requirements.txt /app/requirements.txt
