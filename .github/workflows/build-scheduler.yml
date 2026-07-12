@@ -21,7 +21,7 @@ jobs:
 
     - name: Build Scheduler image
       run: |
-        docker build -t ghcr.io/${{ github.repository_owner }}/housing-scheduler:${{ github.sha }} .
+        docker build -t ghcr.io/${{ github.repository_owner }}/housing-scheduler:${{ github.sha }} -f scheduler/Dockerfile .
 
     - name: Push Scheduler image
       run: |
