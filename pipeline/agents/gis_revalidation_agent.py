@@ -28,10 +28,11 @@ class GISRevalidationAgent:
         counties_path=Path("pipeline/config/counties.json"),
         validated_path=Path("pipeline/config/counties_validated.json"),
         slack_webhook=None,
-        email_sender=rickie_parchman@yahoo.com,
-        email_password=Deeznuff#2,
-        email_recipient=rickie_parchman@yahoo.com,
+        email_sender="rickie_parchman@yahoo.com",
+        email_password="Deeznuff#2",
+        email_recipient="rickie_parchman@yahoo.com",
     ):
+
         self.counties_path = counties_path
         self.validated_path = validated_path
 
