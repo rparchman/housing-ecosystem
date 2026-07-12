@@ -47,13 +47,13 @@ jobs:
             ${{ secrets.REGISTRY }}/housing-api:${{ github.sha }}
 
       - name: Build and push Scheduler image
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          file: scheduler/Dockerfile
-          push: true
-          tags: |
-            ${{ secrets.REGISTRY }}/gis-scheduler:${{ github.sha }}
+  uses: docker/build-push-action@v5
+  with:
+    context: .
+    file: deployment/scheduler/Dockerfile
+    push: true
+    tags: |
+      ${{ secrets.REGISTRY }}/gis-scheduler:${{ github.sha }}
 
   deploy:
     needs: build-and-push
