@@ -23,10 +23,8 @@ jobs:
 
       - name: Build API image
         run: |
-          docker build -t ghcr.io/${{ github.repository_owner }}/housing-api:${{ github.sha }} .
+          docker build -t ghcr.io/${{ github.repository_owner }}/housing-api:${{ github.sha }}.
 
       - name: Push API image
         run: |
-          docker push ghcr.io/${{ github.repository_owner }}/housing-api:${{ github.sha }}
-
-
+	docker push ghcr.io/${{ github.repository_owner }}/housing-api:${{ github.sha }}
