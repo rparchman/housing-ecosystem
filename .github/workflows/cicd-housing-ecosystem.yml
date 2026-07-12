@@ -55,7 +55,7 @@ jobs:
           tags: |
             ${{ secrets.REGISTRY }}/gis-scheduler:${{ github.sha }}
 
-   deploy:
+  deploy:
     needs: build-and-push
     runs-on: ubuntu-latest
     env:
@@ -106,4 +106,3 @@ jobs:
             --set scheduler.image=${{ secrets.REGISTRY }}/gis-scheduler:${{ github.sha }} \
             --namespace housing-${REGION} \
             --create-namespace
-
