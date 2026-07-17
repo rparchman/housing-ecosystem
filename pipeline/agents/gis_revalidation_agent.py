@@ -20,6 +20,8 @@ import json
 from pathlib import Path
 from pipeline.utils.arcgis import validate_service, validate_layer, sample_features
 from pipeline.utils.alert_service import AlertService
+import logging
+logger = logging.getLogger(__name__)
 
 
 class GISRevalidationAgent:
@@ -52,37 +54,49 @@ class GISRevalidationAgent:
         self.validated = {}
 
     def revalidate_county(self, name, info):
-        gis_url = info.get("gis_url")
-        layer_id = info.get("layer_id", 0)
+    gis_url = info.get("gis_url")
+    layer_id = info.get("layer_id", 0)
 
-        print(f"[GIS Revalidation] {name} → {gis_url} (layer {layer_id})")
+    logger.debug("[GIS Revalidation] %s → %s (layer %s)", name, gis_url, layer_id)
 
-        if not gis_url:
-            print(f"[{name}] Missing GIS URL, skipping.")
-            return None
+    if not gis_url:
+        logger.debug("[%s] Missing GIS URL, skipping.", name)
+        return None
 
-        # 1. Service check
-        if not validate_service(gis_url):
-            print(f"[{name}] Service unavailable.")
-            return None
+    # 1. Service check
+    if not validate_service(gis_url):
+        logger.debug("[%s] Service unavailable.", name)
+        return None
 
-        # 2. Layer check
-        layer_meta = validate_layer(gis_url, layer_id)
-        if not layer_meta:
-            print(f"[{name}] Parcel layer not found.")
-            return None
+    # 2. Layer check
+    layer_meta = validate_layer(gis_url, layer_id)
+    if not layer_meta:
+        logger.debug("[%s] Parcel layer not found.", name)
+        return None
 
-        # 3. Sample features
-        sample = sample_features(gis_url, layer_id, limit=5)
-        if not sample:
-            print(f"[{name}] No sample features returned.")
-            return None
+    # 3. Sample features
+    sample = sample_features(gis_url, layer_id, limit=5)
+    if not sample:
+        logger.debug("[%s] No sample features returned.", name)
+        return None
 
-        # 4. Field presence
-        fields = [f["name"].lower() for f in layer_meta.get("fields", [])]
+    # 4. Field presence
+    fields = [f["name"].lower() for f in layer_meta.get("fields", [])]
 
-        required = ["parcel", "parcelid", "sidwell", "pin", "taxid", "address", "situs"]
-        has_required = any(r in fields for r in required)
+    required = ["parcel", "parcelid", "sidwell", "pin", "taxid", "address", "situs"]
+    has_required = any(r in fields for r in required)
+
+    if not has_required:
+        logger.debug("[%s] Missing key parcel/address fields.", name)
+        return None
+
+    logger.info("[%s] Revalidation OK.", name)
+    return {
+        "gis_url": gis_url,
+        "layer_id": layer_id,
+        "fields": fields,
+    }
+
 
         if not has_required:
             print(f"[{name}] Missing key parcel/address fields.")
