@@ -1,32 +1,40 @@
-# pipeline/utils/arcgis.py — replace sample_features with this
+# pipeline/utils/arcgis.py
 import requests
 from typing import Optional, List, Dict, Any
 
 DEFAULT_TIMEOUT = 10
 
+def validate_service(url: str) -> bool:
+    try:
+        resp = requests.get(url.rstrip('/') + '?f=json', timeout=DEFAULT_TIMEOUT)
+        if resp.status_code != 200:
+            return False
+        data = resp.json()
+        return any(k in data for k in ("layers", "services", "currentVersion", "type"))
+    except Exception:
+        return False
+
+def validate_layer(url: str, layer_id: int) -> Optional[Dict[str, Any]]:
+    try:
+        layer_url = f"{url.rstrip('/')}/{layer_id}?f=json"
+        resp = requests.get(layer_url, timeout=DEFAULT_TIMEOUT)
+        if resp.status_code != 200:
+            return None
+        data = resp.json()
+        if isinstance(data, dict) and ("fields" in data or "geometryType" in data):
+            return data
+        return None
+    except Exception:
+        return None
+
 def sample_features(url: str, layer_id: int, limit: int = 5) -> Optional[List[Dict[str, Any]]]:
     try:
         query_url = f"{url.rstrip('/')}/{layer_id}/query"
-        params = {
-            "where": "1=1",
-            "outFields": "*",
-            "f": "json",
-            "resultRecordCount": limit,
-            "orderByFields": "OBJECTID ASC",
-            "returnGeometry": False
-        }
+        params = {"where":"1=1","outFields":"*","f":"json","resultRecordCount":limit,"orderByFields":"OBJECTID ASC","returnGeometry":False}
         resp = requests.get(query_url, params=params, timeout=DEFAULT_TIMEOUT)
         if resp.status_code != 200:
-            print(f"[arcgis.sample_features] non-200 status {resp.status_code} for {query_url}")
-            print(resp.text[:1000])
             return []
         data = resp.json()
-        features = data.get("features")
-        if features is None:
-            print(f"[arcgis.sample_features] no 'features' key in response for {query_url}")
-            print("response keys:", list(data.keys()))
-            return []
-        return features
-    except Exception as exc:
-        print(f"[arcgis.sample_features] exception: {exc}")
+        return data.get("features", [])
+    except Exception:
         return []
