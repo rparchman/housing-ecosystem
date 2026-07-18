@@ -1,5 +1,9 @@
 name: Build Scheduler
 
+permissions:
+  contents: read
+  packages: write
+
 on:
   push:
     branches:
@@ -24,10 +28,10 @@ jobs:
     - name: Build Scheduler image
       run: |
         docker build \
-          -t ghcr.io/${{ github.repository_owner }}/housing-scheduler:${{ github.sha }} \
+          -t ghcr.io/${{ github.repository_owner }}/gis-scheduler:${{ github.sha }} \
           -f ${{ github.workspace }}/scheduler/Dockerfile \
           ${{ github.workspace }}
 
     - name: Push Scheduler image
       run: |
-        docker push ghcr.io/${{ github.repository_owner }}/housing-scheduler:${{ github.sha }}
+        docker push ghcr.io/${{ github.repository_owner }}/gis-scheduler:${{ github.sha }}
